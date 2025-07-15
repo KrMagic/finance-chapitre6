@@ -45,7 +45,7 @@ export default function CoursePlan() {
     },
     {
       title: "Cas pratiques",
-      description: "Exercices pratiques et cas d&apos;application",
+      description: "Exercices pratiques et cas d application",
       href: "/questions-dscg",
       icon: FileText,
       color: "text-violet-600",

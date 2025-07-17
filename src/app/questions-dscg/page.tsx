@@ -177,16 +177,16 @@ export default function QuestionsDSCG() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-violet-50">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6 md:py-8 max-w-4xl">
         <BackToPlanButton />
         
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <div className="flex items-center gap-3 mb-6">
-            <FileText className="h-8 w-8 text-violet-600" />
-            <h1 className="text-3xl font-bold text-gray-900">Cas pratiques</h1>
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
+          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+            <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-violet-600" />
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Cas pratiques</h1>
           </div>
           
-          <div className="bg-violet-50 border-l-4 border-violet-500 p-6 mb-8">
+          <div className="bg-violet-50 border-l-4 border-violet-500 p-4 sm:p-6 mb-6 sm:mb-8">
             <h2 className="text-lg font-semibold text-violet-900 mb-2">Exercices pratiques</h2>
             <p className="text-violet-800">
               Exercices pratiques pour maîtriser les calculs d&apos;obligations. 
@@ -194,10 +194,10 @@ export default function QuestionsDSCG() {
             </p>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {exercises.map((exercise) => (
-              <div key={exercise.id} className="border rounded-xl p-6 bg-gray-50">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <div key={exercise.id} className="border rounded-xl p-4 sm:p-6 bg-gray-50">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
                   Exercice {exercise.id} : {exercise.title}
                 </h3>
                 
@@ -223,29 +223,33 @@ export default function QuestionsDSCG() {
                   </div>
                 </div>
                 
-                <div className="flex gap-3 mb-4">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-4">
                   <button
                     onClick={() => toggleMethodology(exercise.id)}
-                    className="flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors"
+                    className="flex items-center justify-center gap-2 bg-yellow-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm sm:text-base w-full sm:w-auto"
                   >
-                    <Lightbulb className="h-4 w-4" />
-                    {visibleMethodology.includes(exercise.id) ? (
-                      <><EyeOff className="h-4 w-4" /> Masquer méthodologie</>
-                    ) : (
-                      <><Eye className="h-4 w-4" /> Voir méthodologie</>
-                    )}
+                    <Lightbulb className="h-4 w-4 flex-shrink-0" />
+                    <span className="flex items-center gap-1">
+                      {visibleMethodology.includes(exercise.id) ? (
+                        <><EyeOff className="h-4 w-4" /> <span className="hidden xs:inline">Masquer </span>méthodologie</>
+                      ) : (
+                        <><Eye className="h-4 w-4" /> <span className="hidden xs:inline">Voir </span>méthodologie</>
+                      )}
+                    </span>
                   </button>
                   
                   <button
                     onClick={() => toggleSolution(exercise.id)}
-                    className="flex items-center gap-2 bg-violet-600 text-white px-4 py-2 rounded-lg hover:bg-violet-700 transition-colors"
+                    className="flex items-center justify-center gap-2 bg-violet-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-violet-700 transition-colors text-sm sm:text-base w-full sm:w-auto"
                   >
-                    <Calculator className="h-4 w-4" />
-                    {visibleSolutions.includes(exercise.id) ? (
-                      <><EyeOff className="h-4 w-4" /> Masquer solution</>
-                    ) : (
-                      <><Eye className="h-4 w-4" /> Voir solution</>
-                    )}
+                    <Calculator className="h-4 w-4 flex-shrink-0" />
+                    <span className="flex items-center gap-1">
+                      {visibleSolutions.includes(exercise.id) ? (
+                        <><EyeOff className="h-4 w-4" /> <span className="hidden xs:inline">Masquer </span>solution</>
+                      ) : (
+                        <><Eye className="h-4 w-4" /> <span className="hidden xs:inline">Voir </span>solution</>
+                      )}
+                    </span>
                   </button>
                 </div>
                 
@@ -274,7 +278,7 @@ export default function QuestionsDSCG() {
             ))}
           </div>
           
-          <div className="mt-8 p-6 bg-green-50 rounded-lg">
+          <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-green-50 rounded-lg">
             <h3 className="text-lg font-semibold text-green-900 mb-2">Conseils pour l&apos;examen</h3>
             <ul className="text-green-800 space-y-2">
               <li>• <strong>Lisez attentivement</strong> l&apos;énoncé et identifiez les données clés</li>
@@ -285,10 +289,10 @@ export default function QuestionsDSCG() {
             </ul>
           </div>
           
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
             <Link 
               href="/quiz" 
-              className="inline-flex items-center gap-2 text-violet-600 hover:text-violet-800 transition-colors"
+              className="inline-flex items-center gap-2 text-violet-600 hover:text-violet-800 transition-colors text-sm sm:text-base"
             >
               <ArrowLeft className="h-4 w-4" />
               Retour au Quiz
@@ -296,9 +300,9 @@ export default function QuestionsDSCG() {
             
             <Link 
               href="/" 
-              className="inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-lg hover:bg-violet-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-violet-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-violet-700 transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
             >
-              <Home className="h-5 w-5" />
+              <Home className="h-4 w-4 sm:h-5 sm:w-5" />
               Plan du cours
               <ArrowRight className="h-4 w-4" />
             </Link>

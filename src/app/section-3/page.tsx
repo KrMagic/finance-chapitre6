@@ -209,11 +209,11 @@ export default function Section3() {
               ← Section II
             </Link>
             <Link 
-              href="/questions-dscg" 
+              href="/quiz" 
               className="inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-lg hover:bg-violet-700 transition-colors"
             >
               <FileText className="h-5 w-5" />
-              Cas pratiques
+              Quiz
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
